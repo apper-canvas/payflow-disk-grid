@@ -45,13 +45,12 @@ const PaymentsTable = ({ onPaymentSelect }) => {
     setShowCreateModal(true);
   };
 
-  useEffect(() => {
+useEffect(() => {
     loadPayments();
   }, []);
 
-const filteredPayments = useMemo(() => {
+  const filteredPayments = useMemo(() => {
     let filtered = payments;
-
     if (statusFilter !== 'all') {
       filtered = filtered.filter(payment => payment.status === statusFilter);
     }
@@ -117,13 +116,13 @@ const filteredPayments = useMemo(() => {
     );
   }
 
-  return (
+return (
     <>
       <SearchFilterBar
         searchTerm={searchTerm}
         onSearchChange={(e) => setSearchTerm(e.target.value)}
         searchPlaceholder="Search by customer, email, or payment ID..."
-filterValue={statusFilter}
+        filterValue={statusFilter}
         onFilterChange={(e) => setStatusFilter(e.target.value)}
         filterOptions={statusFilterOptions}
         actionButtonText="Create Payment"
@@ -134,7 +133,7 @@ filterValue={statusFilter}
           icon="CreditCard"
           title="No payments found"
           message={searchTerm || statusFilter !== 'all'
-? 'Try adjusting your filters to see more results'
+            ? 'Try adjusting your filters to see more results'
             : 'Payments will appear here once you start processing transactions'
           }
           actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : null}
@@ -194,21 +193,21 @@ filterValue={statusFilter}
                             {payment.customer?.email || 'No email'}
                           </div>
                         </div>
-                      </div>
+</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-<div className="text-sm font-medium text-secondary">
+                      <div className="text-sm font-medium text-secondary">
                         {formatCurrency(payment.amount)}
                       </div>
                       <div className="text-sm text-gray-500">{payment.currency?.toUpperCase() || 'USD'}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <StatusBadge status={payment.status} />
-                    </td>
+</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <ApperIcon name="CreditCard" size={16} className="text-gray-400 mr-2" />
-<div>
+                        <div>
                           <div className="text-sm text-secondary">
                             {payment.paymentMethod?.brand || 'Card'} •••• {payment.paymentMethod?.last4 || '0000'}
                           </div>
@@ -229,11 +228,11 @@ filterValue={statusFilter}
                         View Details
                       </button>
                     </td>
-                  </motion.tr>
+</motion.tr>
                 ))}
               </tbody>
             </table>
-</div>
+          </div>
 
           {totalPages > 1 && (
             <PaginationControls
