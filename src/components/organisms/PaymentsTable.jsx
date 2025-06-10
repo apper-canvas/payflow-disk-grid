@@ -10,6 +10,7 @@ import PaginationControls from '@/components/molecules/PaginationControls';
 import EmptyState from '@/components/molecules/EmptyState';
 import LoadingSkeleton from '@/components/atoms/LoadingSkeleton';
 import ErrorState from '@/components/molecules/ErrorState';
+import CreatePaymentModal from '@/components/organisms/CreatePaymentModal';
 import paymentService from '@/services/api/paymentService';
 
 const PaymentsTable = ({ onPaymentSelect }) => {
@@ -19,6 +20,7 @@ const PaymentsTable = ({ onPaymentSelect }) => {
   const [statusFilter, setStatusFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [showCreateModal, setShowCreateModal] = useState(false);
   const itemsPerPage = 10;
 
   const loadPayments = async () => {
@@ -33,6 +35,14 @@ const PaymentsTable = ({ onPaymentSelect }) => {
     } finally {
       setLoading(false);
     }
+};
+
+  const handlePaymentCreated = (newPayment) => {
+    setPayments(prev => [newPayment, ...prev]);
+  };
+
+  const handleCreatePayment = () => {
+    setShowCreateModal(true);
   };
 
   useEffect(() => {
@@ -111,8 +121,8 @@ const PaymentsTable = ({ onPaymentSelect }) => {
         filterValue={statusFilter}
         onFilterChange={(e) => setStatusFilter(e.target.value)}
         filterOptions={statusFilterOptions}
-        actionButtonText="Create Test Payment"
-        onActionButtonClick={() => toast.info("Simulating test payment creation!")}
+actionButtonText="Create Payment"
+        onActionButtonClick={handleCreatePayment}
       />
 
       {filteredPayments.length === 0 ? (
@@ -123,8 +133,8 @@ const PaymentsTable = ({ onPaymentSelect }) => {
             ? 'Try adjusting your filters to see more results'
             : 'Payments will appear here once you start processing transactions'
           }
-          actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Test Payment" : null}
-          onActionButtonClick={(!searchTerm && statusFilter === 'all') ? () => toast.info("Simulating test payment creation!") : null}
+actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : null}
+          onActionButtonClick={(!searchTerm && statusFilter === 'all') ? handleCreatePayment : null}
         />
       ) : (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200">
@@ -227,13 +237,18 @@ const PaymentsTable = ({ onPaymentSelect }) => {
               totalPages={totalPages}
               onPageChange={setCurrentPage}
               totalItems={filteredPayments.length}
-              itemsPerPage={itemsPerPage}
-            />
-          )}
-        </div>
+itemsPerPage={itemsPerPage}
+        />
       )}
+    </div>
+  )}
+  
+  <CreatePaymentModal
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        onPaymentCreated={handlePaymentCreated}
+      />
     </>
-  );
 };
 
 PaymentsTable.propTypes = {
