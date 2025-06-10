@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
+
 import Button from '@/components/atoms/Button';
 import CodeSnippet from '@/components/molecules/CodeSnippet';
 
