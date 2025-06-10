@@ -1,9 +1,11 @@
-import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-import ApperIcon from '../components/ApperIcon'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
 
-function NotFound() {
-  const navigate = useNavigate()
+const NotFoundPage = () => {
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
@@ -27,27 +29,23 @@ function NotFound() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
             onClick={() => navigate('/home')}
-            className="px-6 py-3 bg-primary text-white rounded-lg hover:brightness-110 transition-all"
+            className="bg-primary text-white hover:brightness-110 px-6 py-3"
           >
             Go to Dashboard
-          </motion.button>
+          </Button>
           
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
             onClick={() => navigate(-1)}
-            className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+            className="border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3"
           >
             Go Back
-          </motion.button>
+          </Button>
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFoundPage;

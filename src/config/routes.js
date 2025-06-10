@@ -1,9 +1,9 @@
-import Home from '../pages/Home'
-import Payments from '../pages/Payments'
-import Customers from '../pages/Customers'
-import Analytics from '../pages/Analytics'
-import Developers from '../pages/Developers'
-import Settings from '../pages/Settings'
+import HomePage from '@/components/pages/HomePage'
+import PaymentsPage from '@/components/pages/PaymentsPage'
+import CustomersPage from '@/components/pages/CustomersPage'
+import AnalyticsPage from '@/components/pages/AnalyticsPage'
+import DevelopersPage from '@/components/pages/DevelopersPage'
+import SettingsPage from '@/components/pages/SettingsPage'
 
 export const routes = {
   home: {
@@ -11,42 +11,42 @@ export const routes = {
     label: 'Home',
     path: '/home',
     icon: 'Home',
-    component: Home
+component: HomePage
   },
   payments: {
     id: 'payments',
     label: 'Payments',
     path: '/payments',
     icon: 'CreditCard',
-    component: Payments
+component: PaymentsPage
   },
   customers: {
     id: 'customers',
     label: 'Customers',
     path: '/customers',
     icon: 'Users',
-    component: Customers
+component: CustomersPage
   },
   analytics: {
     id: 'analytics',
     label: 'Analytics',
     path: '/analytics',
     icon: 'BarChart3',
-    component: Analytics
+component: AnalyticsPage
   },
   developers: {
     id: 'developers',
     label: 'Developers',
     path: '/developers',
     icon: 'Code',
-    component: Developers
+component: DevelopersPage
   },
   settings: {
     id: 'settings',
     label: 'Settings',
     path: '/settings',
     icon: 'Settings',
-    component: Settings
+component: SettingsPage
   }
 }
 
