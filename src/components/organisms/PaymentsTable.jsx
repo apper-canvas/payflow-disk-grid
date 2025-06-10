@@ -107,7 +107,7 @@ useEffect(() => {
     );
   }
 
-  if (error) {
+if (error) {
     return (
       <ErrorState
         message={error}
@@ -115,8 +115,7 @@ useEffect(() => {
       />
     );
   }
-
-return (
+  return (
     <>
       <SearchFilterBar
         searchTerm={searchTerm}
@@ -193,7 +192,7 @@ return (
                             {payment.customer?.email || 'No email'}
                           </div>
                         </div>
-</div>
+                      </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm font-medium text-secondary">
@@ -203,7 +202,7 @@ return (
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <StatusBadge status={payment.status} />
-</td>
+                    </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <ApperIcon name="CreditCard" size={16} className="text-gray-400 mr-2" />
@@ -228,7 +227,7 @@ return (
                         View Details
                       </button>
                     </td>
-</motion.tr>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>
@@ -253,6 +252,7 @@ return (
       />
     </>
   );
+};
 
 PaymentsTable.propTypes = {
   onPaymentSelect: PropTypes.func.isRequired,
