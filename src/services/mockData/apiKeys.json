@@ -1,0 +1,34 @@
+[
+  {
+    "id": "key_test_1234567890",
+    "name": "Development API Key",
+    "key": "sk_test_4eC39HqLyjWDarjtT1zdp7dc",
+    "mode": "test",
+    "created": "2024-01-10T10:30:00Z",
+    "lastUsed": "2024-01-15T14:22:00Z"
+  },
+  {
+    "id": "key_live_2345678901",
+    "name": "Production API Key",
+    "key": "sk_live_51IYZ4HqLyjWDarjtT1zdp7dc4eC39Z1f8HqLyjWDar",
+    "mode": "live",
+    "created": "2024-01-05T16:45:00Z",
+    "lastUsed": "2024-01-15T09:15:00Z"
+  },
+  {
+    "id": "key_test_3456789012",
+    "name": "Staging Environment",
+    "key": "sk_test_51HYZ4HqLyjWDarjtT1zdp7dc4eC39Z1f8HqLyjWDar",
+    "mode": "test",
+    "created": "2024-01-12T09:20:00Z",
+    "lastUsed": null
+  },
+  {
+    "id": "key_live_4567890123",
+    "name": "Mobile App API Key",
+    "key": "sk_live_51JYZ4HqLyjWDarjtT1zdp7dc4eC39Z1f8HqLyjWDar",
+    "mode": "live",
+    "created": "2023-12-20T14:10:00Z",
+    "lastUsed": "2024-01-14T18:30:00Z"
+  }
+]

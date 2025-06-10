@@ -1,0 +1,195 @@
+[
+  {
+    "id": "pi_1A2B3C4D5E6F7G8H",
+    "amount": 2500,
+    "currency": "usd",
+    "status": "succeeded",
+    "created": "2024-01-15T14:30:00Z",
+    "customer": {
+      "id": "cus_ABC123",
+      "name": "Sarah Johnson",
+      "email": "sarah.johnson@techstartup.com"
+    },
+    "paymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "4242",
+      "expiryMonth": 12,
+      "expiryYear": 2025
+    },
+    "metadata": {
+      "order_id": "ORD-2024-001",
+      "customer_id": "12345"
+    }
+  },
+  {
+    "id": "pi_2B3C4D5E6F7G8H9I",
+    "amount": 5000,
+    "currency": "usd",
+    "status": "succeeded",
+    "created": "2024-01-14T09:15:00Z",
+    "customer": {
+      "id": "cus_DEF456",
+      "name": "Michael Chen",
+      "email": "michael.chen@designagency.co"
+    },
+    "paymentMethod": {
+      "id": "pm_card_mastercard",
+      "type": "card",
+      "brand": "Mastercard",
+      "last4": "8888",
+      "expiryMonth": 8,
+      "expiryYear": 2026
+    },
+    "metadata": {
+      "order_id": "ORD-2024-002",
+      "plan": "premium"
+    }
+  },
+  {
+    "id": "pi_3C4D5E6F7G8H9I0J",
+    "amount": 1500,
+    "currency": "usd",
+    "status": "pending",
+    "created": "2024-01-14T16:45:00Z",
+    "customer": {
+      "id": "cus_GHI789",
+      "name": "Emma Rodriguez",
+      "email": "emma.r@consultingfirm.com"
+    },
+    "paymentMethod": {
+      "id": "pm_card_amex",
+      "type": "card",
+      "brand": "American Express",
+      "last4": "1005",
+      "expiryMonth": 5,
+      "expiryYear": 2027
+    },
+    "metadata": {
+      "order_id": "ORD-2024-003",
+      "service": "consulting"
+    }
+  },
+  {
+    "id": "pi_4D5E6F7G8H9I0J1K",
+    "amount": 750,
+    "currency": "usd",
+    "status": "failed",
+    "created": "2024-01-13T11:20:00Z",
+    "customer": {
+      "id": "cus_JKL012",
+      "name": "David Park",
+      "email": "david.park@retailstore.com"
+    },
+    "paymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "9999",
+      "expiryMonth": 3,
+      "expiryYear": 2024
+    },
+    "metadata": {
+      "order_id": "ORD-2024-004",
+      "product": "software_license"
+    }
+  },
+  {
+    "id": "pi_5E6F7G8H9I0J1K2L",
+    "amount": 12000,
+    "currency": "usd",
+    "status": "succeeded",
+    "created": "2024-01-12T13:10:00Z",
+    "customer": {
+      "id": "cus_MNO345",
+      "name": "Lisa Thompson",
+      "email": "lisa.thompson@enterprise.corp"
+    },
+    "paymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "5555",
+      "expiryMonth": 11,
+      "expiryYear": 2025
+    },
+    "metadata": {
+      "order_id": "ORD-2024-005",
+      "plan": "enterprise",
+      "seats": "50"
+    }
+  },
+  {
+    "id": "pi_6F7G8H9I0J1K2L3M",
+    "amount": 3200,
+    "currency": "usd",
+    "status": "refunded",
+    "created": "2024-01-11T08:30:00Z",
+    "customer": {
+      "id": "cus_PQR678",
+      "name": "James Wilson",
+      "email": "james.wilson@freelancer.dev"
+    },
+    "paymentMethod": {
+      "id": "pm_card_mastercard",
+      "type": "card",
+      "brand": "Mastercard",
+      "last4": "7777",
+      "expiryMonth": 9,
+      "expiryYear": 2026
+    },
+    "metadata": {
+      "order_id": "ORD-2024-006",
+      "refund_reason": "duplicate_charge"
+    }
+  },
+  {
+    "id": "pi_7G8H9I0J1K2L3M4N",
+    "amount": 4500,
+    "currency": "usd",
+    "status": "succeeded",
+    "created": "2024-01-10T15:25:00Z",
+    "customer": {
+      "id": "cus_STU901",
+      "name": "Rachel Green",
+      "email": "rachel.green@marketingpro.com"
+    },
+    "paymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "1111",
+      "expiryMonth": 6,
+      "expiryYear": 2027
+    },
+    "metadata": {
+      "order_id": "ORD-2024-007",
+      "campaign": "q1_2024"
+    }
+  },
+  {
+    "id": "pi_8H9I0J1K2L3M4N5O",
+    "amount": 990,
+    "currency": "usd",
+    "status": "succeeded",
+    "created": "2024-01-09T12:40:00Z",
+    "customer": {
+      "id": "cus_VWX234",
+      "name": "Kevin Brown",
+      "email": "kevin.brown@photographer.studio"
+    },
+    "paymentMethod": {
+      "id": "pm_card_amex",
+      "type": "card",
+      "brand": "American Express",
+      "last4": "2222",
+      "expiryMonth": 4,
+      "expiryYear": 2025
+    },
+    "metadata": {
+      "order_id": "ORD-2024-008",
+      "package": "premium_editing"
+    }
+  }
+]

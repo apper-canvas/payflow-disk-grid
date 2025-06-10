@@ -1,0 +1,130 @@
+[
+  {
+    "id": "cus_ABC123",
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@techstartup.com",
+    "created": "2023-11-15T10:30:00Z",
+    "totalSpent": 7500,
+    "paymentCount": 3,
+    "defaultPaymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "4242",
+      "expiryMonth": 12,
+      "expiryYear": 2025
+    }
+  },
+  {
+    "id": "cus_DEF456",
+    "name": "Michael Chen",
+    "email": "michael.chen@designagency.co",
+    "created": "2023-10-22T14:15:00Z",
+    "totalSpent": 15000,
+    "paymentCount": 6,
+    "defaultPaymentMethod": {
+      "id": "pm_card_mastercard",
+      "type": "card",
+      "brand": "Mastercard",
+      "last4": "8888",
+      "expiryMonth": 8,
+      "expiryYear": 2026
+    }
+  },
+  {
+    "id": "cus_GHI789",
+    "name": "Emma Rodriguez",
+    "email": "emma.r@consultingfirm.com",
+    "created": "2023-12-08T09:45:00Z",
+    "totalSpent": 4500,
+    "paymentCount": 2,
+    "defaultPaymentMethod": {
+      "id": "pm_card_amex",
+      "type": "card",
+      "brand": "American Express",
+      "last4": "1005",
+      "expiryMonth": 5,
+      "expiryYear": 2027
+    }
+  },
+  {
+    "id": "cus_JKL012",
+    "name": "David Park",
+    "email": "david.park@retailstore.com",
+    "created": "2023-09-18T16:20:00Z",
+    "totalSpent": 2250,
+    "paymentCount": 4,
+    "defaultPaymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "9999",
+      "expiryMonth": 3,
+      "expiryYear": 2024
+    }
+  },
+  {
+    "id": "cus_MNO345",
+    "name": "Lisa Thompson",
+    "email": "lisa.thompson@enterprise.corp",
+    "created": "2023-08-30T11:10:00Z",
+    "totalSpent": 24000,
+    "paymentCount": 8,
+    "defaultPaymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "5555",
+      "expiryMonth": 11,
+      "expiryYear": 2025
+    }
+  },
+  {
+    "id": "cus_PQR678",
+    "name": "James Wilson",
+    "email": "james.wilson@freelancer.dev",
+    "created": "2023-12-01T13:25:00Z",
+    "totalSpent": 1800,
+    "paymentCount": 2,
+    "defaultPaymentMethod": {
+      "id": "pm_card_mastercard",
+      "type": "card",
+      "brand": "Mastercard",
+      "last4": "7777",
+      "expiryMonth": 9,
+      "expiryYear": 2026
+    }
+  },
+  {
+    "id": "cus_STU901",
+    "name": "Rachel Green",
+    "email": "rachel.green@marketingpro.com",
+    "created": "2023-07-12T08:15:00Z",
+    "totalSpent": 18000,
+    "paymentCount": 12,
+    "defaultPaymentMethod": {
+      "id": "pm_card_visa",
+      "type": "card",
+      "brand": "Visa",
+      "last4": "1111",
+      "expiryMonth": 6,
+      "expiryYear": 2027
+    }
+  },
+  {
+    "id": "cus_VWX234",
+    "name": "Kevin Brown",
+    "email": "kevin.brown@photographer.studio",
+    "created": "2023-11-28T17:30:00Z",
+    "totalSpent": 3960,
+    "paymentCount": 5,
+    "defaultPaymentMethod": {
+      "id": "pm_card_amex",
+      "type": "card",
+      "brand": "American Express",
+      "last4": "2222",
+      "expiryMonth": 4,
+      "expiryYear": 2025
+    }
+  }
+]
