@@ -49,7 +49,7 @@ const PaymentsTable = ({ onPaymentSelect }) => {
     loadPayments();
   }, []);
 
-  const filteredPayments = useMemo(() => {
+const filteredPayments = useMemo(() => {
     let filtered = payments;
 
     if (statusFilter !== 'all') {
@@ -60,12 +60,17 @@ const PaymentsTable = ({ onPaymentSelect }) => {
       filtered = filtered.filter(payment =>
         payment.customer?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         payment.customer?.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        payment.id.toLowerCase().includes(searchTerm.toLowerCase())
+        payment.id?.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    setCurrentPage(1); // Reset page on filter/search change
+    
     return filtered;
   }, [payments, statusFilter, searchTerm]);
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [statusFilter, searchTerm]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-US', {
@@ -118,22 +123,21 @@ const PaymentsTable = ({ onPaymentSelect }) => {
         searchTerm={searchTerm}
         onSearchChange={(e) => setSearchTerm(e.target.value)}
         searchPlaceholder="Search by customer, email, or payment ID..."
-        filterValue={statusFilter}
+filterValue={statusFilter}
         onFilterChange={(e) => setStatusFilter(e.target.value)}
         filterOptions={statusFilterOptions}
-actionButtonText="Create Payment"
+        actionButtonText="Create Payment"
         onActionButtonClick={handleCreatePayment}
       />
-
       {filteredPayments.length === 0 ? (
         <EmptyState
           icon="CreditCard"
           title="No payments found"
           message={searchTerm || statusFilter !== 'all'
-            ? 'Try adjusting your filters to see more results'
+? 'Try adjusting your filters to see more results'
             : 'Payments will appear here once you start processing transactions'
           }
-actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : null}
+          actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : null}
           onActionButtonClick={(!searchTerm && statusFilter === 'all') ? handleCreatePayment : null}
         />
       ) : (
@@ -193,10 +197,10 @@ actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : n
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-secondary">
+<div className="text-sm font-medium text-secondary">
                         {formatCurrency(payment.amount)}
                       </div>
-                      <div className="text-sm text-gray-500">{payment.currency.toUpperCase()}</div>
+                      <div className="text-sm text-gray-500">{payment.currency?.toUpperCase() || 'USD'}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <StatusBadge status={payment.status} />
@@ -204,12 +208,12 @@ actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : n
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <ApperIcon name="CreditCard" size={16} className="text-gray-400 mr-2" />
-                        <div>
+<div>
                           <div className="text-sm text-secondary">
-                            {payment.paymentMethod?.brand} •••• {payment.paymentMethod?.last4}
+                            {payment.paymentMethod?.brand || 'Card'} •••• {payment.paymentMethod?.last4 || '0000'}
                           </div>
                           <div className="text-sm text-gray-500">
-                            {payment.paymentMethod?.expiryMonth}/{payment.paymentMethod?.expiryYear}
+                            {payment.paymentMethod?.expiryMonth || '00'}/{payment.paymentMethod?.expiryYear || '00'}
                           </div>
                         </div>
                       </div>
@@ -229,7 +233,7 @@ actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : n
                 ))}
               </tbody>
             </table>
-          </div>
+</div>
 
           {totalPages > 1 && (
             <PaginationControls
@@ -237,19 +241,19 @@ actionButtonText={(!searchTerm && statusFilter === 'all') ? "Create Payment" : n
               totalPages={totalPages}
               onPageChange={setCurrentPage}
               totalItems={filteredPayments.length}
-itemsPerPage={itemsPerPage}
-        />
+              itemsPerPage={itemsPerPage}
+            />
+          )}
+        </div>
       )}
-    </div>
-  )}
   
-  <CreatePaymentModal
+      <CreatePaymentModal
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}
         onPaymentCreated={handlePaymentCreated}
       />
     </>
-};
+  );
 
 PaymentsTable.propTypes = {
   onPaymentSelect: PropTypes.func.isRequired,
