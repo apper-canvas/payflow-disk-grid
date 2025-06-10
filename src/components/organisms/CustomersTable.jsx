@@ -8,17 +8,17 @@ import PaginationControls from '@/components/molecules/PaginationControls';
 import EmptyState from '@/components/molecules/EmptyState';
 import LoadingSkeleton from '@/components/atoms/LoadingSkeleton';
 import ErrorState from '@/components/molecules/ErrorState';
+import AddCustomerModal from '@/components/organisms/AddCustomerModal';
 import customerService from '@/services/api/customerService';
-
 const CustomersTable = () => {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const itemsPerPage = 10;
-
-  const loadCustomers = async () => {
+const loadCustomers = async () => {
     setLoading(true);
     setError(null);
     try {
@@ -30,6 +30,14 @@ const CustomersTable = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleCustomerAdded = (newCustomer) => {
+    setCustomers(prev => [newCustomer, ...prev]);
+  };
+
+  const handleAddCustomerClick = () => {
+    setIsAddModalOpen(true);
   };
 
   useEffect(() => {
@@ -91,8 +99,8 @@ const CustomersTable = () => {
         searchTerm={searchTerm}
         onSearchChange={(e) => setSearchTerm(e.target.value)}
         searchPlaceholder="Search by name or email..."
-        actionButtonText="Add Customer"
-        onActionButtonClick={() => toast.info("Simulating customer addition!")}
+actionButtonText="Add Customer"
+        onActionButtonClick={handleAddCustomerClick}
       />
 
       {filteredCustomers.length === 0 ? (
@@ -103,8 +111,8 @@ const CustomersTable = () => {
             ? 'Try adjusting your search to see more results'
             : 'Customers will appear here once you start accepting payments'
           }
-          actionButtonText={!searchTerm ? "Add First Customer" : null}
-          onActionButtonClick={!searchTerm ? () => toast.info("Simulating customer addition!") : null}
+actionButtonText={!searchTerm ? "Add First Customer" : null}
+          onActionButtonClick={!searchTerm ? handleAddCustomerClick : null}
         />
       ) : (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200">
@@ -210,7 +218,13 @@ const CustomersTable = () => {
             />
           )}
         </div>
-      )}
+)}
+
+      <AddCustomerModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onCustomerAdded={handleCustomerAdded}
+      />
     </>
   );
 };
