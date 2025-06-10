@@ -44,7 +44,7 @@ const loadCustomers = async () => {
     loadCustomers();
   }, []);
 
-  const filteredCustomers = useMemo(() => {
+const filteredCustomers = useMemo(() => {
     let filtered = customers;
     if (searchTerm) {
       filtered = filtered.filter(customer =>
@@ -52,9 +52,13 @@ const loadCustomers = async () => {
         customer.email?.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    setCurrentPage(1); // Reset page on search change
     return filtered;
   }, [customers, searchTerm]);
+
+  // Reset page when search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-US', {

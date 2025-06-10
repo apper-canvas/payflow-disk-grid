@@ -41,11 +41,11 @@ const PaymentsTable = ({ onPaymentSelect }) => {
     setPayments(prev => [newPayment, ...prev]);
   };
 
-  const handleCreatePayment = () => {
+const handleCreatePayment = () => {
     setShowCreateModal(true);
   };
 
-useEffect(() => {
+  useEffect(() => {
     loadPayments();
   }, []);
 
@@ -64,7 +64,7 @@ useEffect(() => {
     }
     
     return filtered;
-  }, [payments, statusFilter, searchTerm]);
+}, [payments, statusFilter, searchTerm]);
 
   // Reset page when filters change
   useEffect(() => {
@@ -105,9 +105,9 @@ useEffect(() => {
         </div>
       </div>
     );
-  }
+}
 
-if (error) {
+  if (error) {
     return (
       <ErrorState
         message={error}
@@ -115,6 +115,7 @@ if (error) {
       />
     );
   }
+
   return (
     <>
       <SearchFilterBar
