@@ -14,10 +14,10 @@ function App() {
             <Route 
               key={route.id} 
               path={route.path} 
-              element={<route.component />} 
+element={<route.component />} 
             />
           ))}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       <ToastContainer
